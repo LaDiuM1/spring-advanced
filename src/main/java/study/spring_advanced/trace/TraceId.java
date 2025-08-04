@@ -8,7 +8,7 @@ import java.util.UUID;
 public class TraceId {
 
     private final String id;
-    private final int level;
+    private int level;
 
     public TraceId() {
         this.id = createId();

@@ -20,6 +20,13 @@ public class TraceV1 {
         return new TraceStatus(traceId, startTimeMs, message);
     }
 
+    public TraceStatus next(TraceStatus status, String message) {
+        Long startTimeMs = System.currentTimeMillis();
+        TraceId traceId = status.getTraceId().createNextId();
+        log.info("[{}] {}{}", traceId.getId(), addSpace(START_PREFIX, traceId.getLevel()), message);
+        return new TraceStatus(traceId, startTimeMs, message);
+    }
+
     public void end(TraceStatus status) {
         complete(status, null);
     }
