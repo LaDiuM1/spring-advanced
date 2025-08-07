@@ -10,7 +10,7 @@ import study.spring_advanced.trace.TraceStatus;
 @Slf4j
 @Component
 @Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class FieldLogTrace implements LogTrace {
+public class RequestScopeLogTrace implements LogTrace {
 
     private static final String START_PREFIX = "-->";
     private static final String COMPLETE_PREFIX = "<--";
