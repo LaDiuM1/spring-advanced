@@ -8,17 +8,17 @@ import study.spring_advanced.proxy.app.v0.*;
 public class AppV0Config {
 
     @Bean
-    public OrderControllerV0 orderController() {
-        return new OrderControllerV0Impl(orderService());
+    public OrderControllerV0 orderControllerV0() {
+        return new OrderControllerV0Impl(orderServiceV0());
     }
 
     @Bean
-    public OrderServiceV0 orderService() {
-        return new OrderServiceV0Impl(orderRepository());
+    public OrderServiceV0 orderServiceV0() {
+        return new OrderServiceV0Impl(orderRepositoryV0());
     }
 
     @Bean
-    public OrderRepositoryV0 orderRepository() {
+    public OrderRepositoryV0 orderRepositoryV0() {
         return new OrderRepositoryV0Impl();
     }
 
