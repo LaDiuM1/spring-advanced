@@ -16,23 +16,23 @@ public class AppV0Config {
     public OrderControllerV0 orderControllerV0() {
         OrderControllerV0Impl orderController = new OrderControllerV0Impl(orderServiceV0());
 
-        return new OrderControllerV0Proxy(orderController, strategyLogTrace());
+        return new OrderControllerV0Proxy(orderController, strategyLogTraceV0());
     }
 
     @Bean
     public OrderServiceV0 orderServiceV0() {
         OrderServiceV0Impl orderService = new OrderServiceV0Impl(orderRepositoryV0());
-        return new OrderServiceV0Proxy(orderService, strategyLogTrace());
+        return new OrderServiceV0Proxy(orderService, strategyLogTraceV0());
     }
 
     @Bean
     public OrderRepositoryV0 orderRepositoryV0() {
         OrderRepositoryV0Impl orderRepository = new OrderRepositoryV0Impl();
-        return new OrderRepositoryV0Proxy(orderRepository, strategyLogTrace());
+        return new OrderRepositoryV0Proxy(orderRepository, strategyLogTraceV0());
     }
 
     @Bean
-    public StrategyLogTrace strategyLogTrace() {
+    public StrategyLogTrace strategyLogTraceV0() {
         return new StrategyLogTrace(new ThreadLocalLogTrace());
     }
 
