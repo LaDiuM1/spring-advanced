@@ -15,7 +15,7 @@ public class OrderRepositoryV2 {
         TraceStatus traceStatus = null;
 
         try {
-            traceStatus = trace.begin("OrderRepositoryV2.save");
+            traceStatus = trace.begin("OrderRepositoryImplV2.save");
             if (itemId.equals("ex")) {
                 throw new IllegalStateException("저장 예외 발생");
             }

@@ -18,7 +18,7 @@ public class OrderControllerV2 {
         TraceStatus traceStatus = null;
 
         try {
-            traceStatus = trace.begin("OrderControllerV2.request");
+            traceStatus = trace.begin("OrderControllerImplV2.request");
             orderService.orderItem(itemId);
             trace.end(traceStatus);
         } catch (Exception e) {
