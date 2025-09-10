@@ -12,6 +12,8 @@ import java.lang.reflect.Proxy;
 @Configuration
 public class AppV2Config {
 
+    private final String[] loggingPatterns = {"request*", "order*", "save*"};
+
     @Bean
     public LogTrace logTrace() {
         return new ThreadLocalLogTrace();
@@ -39,7 +41,7 @@ public class AppV2Config {
     }
 
     private <T> T getProxyInstance(T target, Class<?>[] classes) {
-        LogTraceInvocationHandler handler = new LogTraceInvocationHandler(target, logTrace());
+        LogTraceInvocationHandler handler = new LogTraceInvocationHandler(target, logTrace(), loggingPatterns);
         return (T) Proxy.newProxyInstance(target.getClass().getClassLoader(), classes, handler);
     }
 
