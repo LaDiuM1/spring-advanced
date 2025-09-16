@@ -52,7 +52,6 @@ public class AdvisorTest {
         pointcut.setMappedName("save");
         DefaultPointcutAdvisor advisor = new DefaultPointcutAdvisor(pointcut, new TimeAdvice());
         proxyFactory.addAdvisor(advisor);
-        proxyFactory.addAdvisors();
         ServiceInterface proxy = (ServiceInterface) proxyFactory.getProxy();
 
         proxy.save();
