@@ -5,44 +5,38 @@ import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.aop.support.NameMatchMethodPointcut;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import study.spring_advanced.proxy.app.proxy.v3.LogTraceAdvice;
+import study.spring_advanced.proxy.config.proxy.v3.LogTraceAdvice;
 import study.spring_advanced.proxy.app.v3.*;
 import study.spring_advanced.proxy.trace.logtrace.LogTrace;
-import study.spring_advanced.proxy.trace.logtrace.ThreadLocalLogTrace;
 
 @Configuration
 public class AppV3Config {
 
     @Bean
-    public LogTrace logTraceV3() {
-        return new ThreadLocalLogTrace();
+    public OrderControllerV3 orderControllerV3(LogTrace logTrace) {
+        OrderControllerV3 target = new OrderControllerV3Impl(orderServiceV3(logTrace));
+        return getAdvisorProxy(target, logTrace);
     }
 
     @Bean
-    public OrderControllerV3 orderControllerV3() {
-        OrderControllerV3 target = new OrderControllerV3Impl(orderServiceV3());
-        return getAdvisorProxy(target);
+    public OrderServiceV3 orderServiceV3(LogTrace logTrace) {
+        OrderServiceV3 target = new OrderServiceV3Impl(orderRepositoryV3(logTrace));
+        return getAdvisorProxy(target, logTrace);
     }
 
     @Bean
-    public OrderServiceV3 orderServiceV3() {
-        OrderServiceV3 target = new OrderServiceV3Impl(orderRepositoryV3());
-        return getAdvisorProxy(target);
-    }
-
-    @Bean
-    public OrderRepositoryV3 orderRepositoryV3() {
+    public OrderRepositoryV3 orderRepositoryV3(LogTrace logTrace) {
         OrderRepositoryV3 target = new OrderRepositoryV3Impl();
-        return getAdvisorProxy(target);
+        return getAdvisorProxy(target, logTrace);
     }
 
-    private <T> T getAdvisorProxy(T target) {
+    private <T> T getAdvisorProxy(T target, LogTrace logTrace) {
         ProxyFactory proxyFactory = new ProxyFactory(target);
 
         NameMatchMethodPointcut pointcut = new NameMatchMethodPointcut();
         pointcut.setMappedNames("request*", "order*", "save*");
 
-        DefaultPointcutAdvisor advisor = new DefaultPointcutAdvisor(pointcut, new LogTraceAdvice(logTraceV3()));
+        DefaultPointcutAdvisor advisor = new DefaultPointcutAdvisor(pointcut, new LogTraceAdvice(logTrace));
         proxyFactory.addAdvisor(advisor);
 
         return (T) proxyFactory.getProxy();
