@@ -1,15 +1,14 @@
-package study.spring_advanced.proxy.app.proxy.v1;
+package study.spring_advanced.proxy.config.proxy.v0;
 
-import study.spring_advanced.proxy.app.v1.OrderServiceV1;
+import study.spring_advanced.proxy.app.v0.OrderServiceV0;
 import study.spring_advanced.proxy.trace.strategy.StrategyLogTrace;
 
-public class OrderServiceV1Proxy extends OrderServiceV1 {
+public class OrderServiceV0Proxy implements OrderServiceV0 {
 
-    private final OrderServiceV1 target;
+    private final OrderServiceV0 target;
     private final StrategyLogTrace trace;
 
-    public OrderServiceV1Proxy(OrderServiceV1 target, StrategyLogTrace trace) {
-        super(null);
+    public OrderServiceV0Proxy(OrderServiceV0 target, StrategyLogTrace trace) {
         this.target = target;
         this.trace = trace;
     }
@@ -21,5 +20,4 @@ public class OrderServiceV1Proxy extends OrderServiceV1 {
             return null;
         });
     }
-
 }

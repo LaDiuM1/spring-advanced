@@ -1,4 +1,4 @@
-package study.spring_advanced.proxy.app.proxy.v2.handler;
+package study.spring_advanced.proxy.config.proxy.v2.handler;
 
 import org.springframework.util.PatternMatchUtils;
 import study.spring_advanced.proxy.trace.TraceStatus;

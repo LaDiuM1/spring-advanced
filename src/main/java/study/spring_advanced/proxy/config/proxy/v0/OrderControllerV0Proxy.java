@@ -1,4 +1,4 @@
-package study.spring_advanced.proxy.app.proxy.v0;
+package study.spring_advanced.proxy.config.proxy.v0;
 
 import study.spring_advanced.proxy.app.v0.OrderControllerV0;
 import study.spring_advanced.proxy.trace.strategy.StrategyLogTrace;

@@ -1,4 +1,4 @@
-package study.spring_advanced.proxy.app.proxy.v3;
+package study.spring_advanced.proxy.config.proxy.v3;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
