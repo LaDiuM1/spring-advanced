@@ -1,10 +1,10 @@
-package study.spring_advanced.proxy.config;
+package study.spring_advanced.proxy.config.v0;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import study.spring_advanced.proxy.config.proxy.v0.OrderControllerV0Proxy;
-import study.spring_advanced.proxy.config.proxy.v0.OrderRepositoryV0Proxy;
-import study.spring_advanced.proxy.config.proxy.v0.OrderServiceV0Proxy;
+import study.spring_advanced.proxy.config.v0.proxy.OrderControllerV0Proxy;
+import study.spring_advanced.proxy.config.v0.proxy.OrderRepositoryV0Proxy;
+import study.spring_advanced.proxy.config.v0.proxy.OrderServiceV0Proxy;
 import study.spring_advanced.proxy.app.v0.*;
 import study.spring_advanced.proxy.trace.logtrace.ThreadLocalLogTrace;
 import study.spring_advanced.proxy.trace.strategy.StrategyLogTrace;

@@ -1,8 +1,8 @@
-package study.spring_advanced.proxy.config;
+package study.spring_advanced.proxy.config.v2;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import study.spring_advanced.proxy.config.proxy.v2.handler.LogTraceInvocationHandler;
+import study.spring_advanced.proxy.config.v2.handler.LogTraceInvocationHandler;
 import study.spring_advanced.proxy.app.v2.*;
 import study.spring_advanced.proxy.trace.logtrace.LogTrace;
 

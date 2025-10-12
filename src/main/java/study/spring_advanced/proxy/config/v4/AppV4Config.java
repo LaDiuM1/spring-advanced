@@ -1,4 +1,4 @@
-package study.spring_advanced.proxy.config;
+package study.spring_advanced.proxy.config.v4;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.Advisor;
@@ -6,8 +6,8 @@ import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.aop.support.NameMatchMethodPointcut;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import study.spring_advanced.proxy.config.proxy.v3.LogTraceAdvice;
-import study.spring_advanced.proxy.config.proxy.v4.postprocessor.PackageLogTracePostProcessor;
+import study.spring_advanced.proxy.config.v3.LogTraceAdvice;
+import study.spring_advanced.proxy.config.v4.postprocessor.PackageLogTracePostProcessor;
 import study.spring_advanced.proxy.trace.logtrace.LogTrace;
 
 @Slf4j

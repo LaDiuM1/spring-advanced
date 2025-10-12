@@ -1,4 +1,4 @@
-package study.spring_advanced.proxy.config.proxy.v4.postprocessor;
+package study.spring_advanced.proxy.config.v4.postprocessor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.Advisor;
