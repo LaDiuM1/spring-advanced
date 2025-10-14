@@ -15,13 +15,16 @@ import study.spring_advanced.proxy.trace.logtrace.ThreadLocalLogTrace;
 import study.spring_advanced.proxy.trace.strategy.StrategyLogTrace;
 
 @Import({
-		AppV0Config.class, AppV1Config.class,
+        AppV0Config.class, AppV1Config.class,
         AppV2Config.class, AppV3Config.class,
         AppV4Config.class, AppV5Config.class
 })
-@SpringBootApplication(scanBasePackages = {
-        "study.spring_advanced.proxy.trace",
-})
+@SpringBootApplication(
+        scanBasePackages = {
+                "study.spring_advanced.proxy.app.v4",
+                "study.spring_advanced.proxy.app.v5"
+        }
+)
 public class ProxyApplication {
 
     public static void main(String[] args) {
