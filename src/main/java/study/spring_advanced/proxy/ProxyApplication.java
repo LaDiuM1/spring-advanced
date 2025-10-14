@@ -12,6 +12,7 @@ import study.spring_advanced.proxy.config.v4.AppV4Config;
 import study.spring_advanced.proxy.config.v5.AppV5Config;
 import study.spring_advanced.proxy.trace.logtrace.LogTrace;
 import study.spring_advanced.proxy.trace.logtrace.ThreadLocalLogTrace;
+import study.spring_advanced.proxy.trace.strategy.StrategyLogTrace;
 
 @Import({
 		AppV0Config.class, AppV1Config.class,
@@ -30,6 +31,11 @@ public class ProxyApplication {
     @Bean
     public LogTrace logTrace() {
         return new ThreadLocalLogTrace();
+    }
+
+    @Bean
+    public StrategyLogTrace strategyLogTrace() {
+        return new StrategyLogTrace(new ThreadLocalLogTrace());
     }
 
 }

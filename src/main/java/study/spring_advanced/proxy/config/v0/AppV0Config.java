@@ -13,27 +13,22 @@ import study.spring_advanced.proxy.trace.strategy.StrategyLogTrace;
 public class AppV0Config {
 
     @Bean
-    public OrderControllerV0 orderControllerV0() {
-        OrderControllerV0Impl orderController = new OrderControllerV0Impl(orderServiceV0());
+    public OrderControllerV0 orderControllerV0(StrategyLogTrace logTrace) {
+        OrderControllerV0Impl orderController = new OrderControllerV0Impl(orderServiceV0(logTrace));
 
-        return new OrderControllerV0Proxy(orderController, strategyLogTraceV0());
+        return new OrderControllerV0Proxy(orderController, logTrace);
     }
 
     @Bean
-    public OrderServiceV0 orderServiceV0() {
-        OrderServiceV0Impl orderService = new OrderServiceV0Impl(orderRepositoryV0());
-        return new OrderServiceV0Proxy(orderService, strategyLogTraceV0());
+    public OrderServiceV0 orderServiceV0(StrategyLogTrace logTrace) {
+        OrderServiceV0Impl orderService = new OrderServiceV0Impl(orderRepositoryV0(logTrace));
+        return new OrderServiceV0Proxy(orderService, logTrace);
     }
 
     @Bean
-    public OrderRepositoryV0 orderRepositoryV0() {
+    public OrderRepositoryV0 orderRepositoryV0(StrategyLogTrace logTrace) {
         OrderRepositoryV0Impl orderRepository = new OrderRepositoryV0Impl();
-        return new OrderRepositoryV0Proxy(orderRepository, strategyLogTraceV0());
-    }
-
-    @Bean
-    public StrategyLogTrace strategyLogTraceV0() {
-        return new StrategyLogTrace(new ThreadLocalLogTrace());
+        return new OrderRepositoryV0Proxy(orderRepository, logTrace);
     }
 
 }
