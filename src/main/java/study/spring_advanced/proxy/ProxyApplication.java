@@ -10,6 +10,7 @@ import study.spring_advanced.proxy.config.v2.AppV2Config;
 import study.spring_advanced.proxy.config.v3.AppV3Config;
 import study.spring_advanced.proxy.config.v4.AppV4Config;
 import study.spring_advanced.proxy.config.v5.AppV5Config;
+import study.spring_advanced.proxy.config.v6.AppV6Config;
 import study.spring_advanced.proxy.trace.logtrace.LogTrace;
 import study.spring_advanced.proxy.trace.logtrace.ThreadLocalLogTrace;
 import study.spring_advanced.proxy.trace.strategy.StrategyLogTrace;
@@ -17,12 +18,14 @@ import study.spring_advanced.proxy.trace.strategy.StrategyLogTrace;
 @Import({
         AppV0Config.class, AppV1Config.class,
         AppV2Config.class, AppV3Config.class,
-        AppV4Config.class, AppV5Config.class
+        AppV4Config.class, AppV5Config.class,
+        AppV6Config.class
 })
 @SpringBootApplication(
         scanBasePackages = {
                 "study.spring_advanced.proxy.app.v4",
-                "study.spring_advanced.proxy.app.v5"
+                "study.spring_advanced.proxy.app.v5",
+                "study.spring_advanced.proxy.app.v6",
         }
 )
 public class ProxyApplication {
