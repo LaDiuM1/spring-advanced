@@ -6,11 +6,15 @@ import org.junit.jupiter.api.Test;
 import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 import study.spring_advanced.aop.app.order.OrderRepository;
 import study.spring_advanced.aop.app.order.OrderService;
+import study.spring_advanced.aop.config.aop.LogAspect;
+import study.spring_advanced.aop.config.aop.TransactionAspect;
 
 @Slf4j
 @SpringBootTest(classes = AopApplication.class)
+@Import({LogAspect.class, TransactionAspect.class})
 public class AopTest {
 
     @Autowired
