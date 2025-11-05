@@ -1,4 +1,4 @@
-package study.spring_advanced.aop.app;
+package study.spring_advanced.aop.pointcut;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
